@@ -131,11 +131,14 @@ sim_regression(n = 14, beta0 = 24)
 
 ```{r}
 url = "https://www.amazon.com/product-reviews/B00005JNBQ/ref=cm_cr_arp_d_viewopt_rvwer?ie=UTF8&reviewerType=avp_only_reviews&sortBy=recent&pageNumber=1"
+
 dynamite_html = read_html(url)
+
 review_titles = 
   dynamite_html %>%
   html_nodes("#cm_cr-review_list .review-title") %>%
   html_text()
+
 review_stars = 
   dynamite_html %>%
   html_nodes("#cm_cr-review_list .review-rating") %>%
